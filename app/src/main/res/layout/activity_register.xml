@@ -69,6 +69,20 @@
             android:hint="Password"
             android:inputType="textPassword" />
 
+        <TextView
+            android:id="@+id/tvConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Confirm Password" />
+
+        <EditText
+            android:id="@+id/etConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Confirm Password"
+            android:inputType="textPersonName" />
+
         <Button
             android:id="@+id/bRegister"
             android:layout_width="match_parent"

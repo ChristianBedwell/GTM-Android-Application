@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Email"
+            android:hint="Email Address"
             android:inputType="textPersonName" />
 
         <EditText
@@ -39,6 +39,9 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Register Here" />
+            android:text="Don't have an account? Register here!"
+            android:gravity="center"
+            android:textColor="#007bff"/>
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
