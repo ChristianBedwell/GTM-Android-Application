@@ -102,6 +102,10 @@ public class NavigationActivity extends AppCompatActivity
             fragmentManager.beginTransaction()
                     .replace(R.id.content_frame, new GalleryFragment())
                     .commit();
+        } else if (id == R.id.nav_settings_layout) {
+            fragmentManager.beginTransaction()
+                    .replace(R.id.content_frame, new SettingsFragment())
+                    .commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
