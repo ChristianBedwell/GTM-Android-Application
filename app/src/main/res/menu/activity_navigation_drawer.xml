@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group
+        android:id="@+id/menu_middle"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home_layout"
+            android:icon="@drawable/ic_menu_home"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_weather_layout"
+            android:icon="@drawable/ic_menu_cloud"
+            android:title="Weather" />
+        <item
+            android:id="@+id/nav_jobs_layout"
+            android:icon="@drawable/ic_menu_jobs"
+            android:title="Jobs" />
+        <item
+            android:id="@+id/nav_messages_layout"
+            android:icon="@drawable/ic_menu_messages"
+            android:title="Messages" />
+        <item
+            android:id="@+id/nav_gallery_layout"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Gallery" />
+    </group>
+
+    <group
+        android:id="@+id/menu_bottom"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_settings_layout"
+            android:icon="@drawable/ic_menu_settings"
+            android:title="Settings" />
+    </group>
+</menu>
+
+
