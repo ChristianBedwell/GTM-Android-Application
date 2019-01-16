@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.android.volley.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
+import com.android.volley.toolbox.Volley;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -50,15 +51,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             if (success) {
                                 Intent intent = new Intent(LoginActivity.this, HomeFragment.class);
                                 LoginActivity.this.startActivity(intent);
-                            } else {
+                            }
+                            else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
                                 builder.setMessage("Login Failed").setNegativeButton("Retry", null).create().show();
                             }
-                        } catch (JSONException e) {
+                        }
+                        catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
                 };
+                LoginRequest loginRequest = new LoginRequest(email, password, responseListener);
+                //RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
+                //queue.add(loginRequest);
                 break;
 
             case R.id.registerLink:
@@ -67,8 +73,5 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
         }
     }
-    //LoginRequest loginRequest = new LoginRequest(email, password, responseListener);
-    //RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
-    //queue.add(loginRequest);
 }
 

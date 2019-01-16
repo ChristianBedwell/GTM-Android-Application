@@ -55,16 +55,16 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                                 AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
                                 builder.setMessage("Register Failed").setNegativeButton("Retry", null).create().show();
                             }
-                        } 
+                        }
                         catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
                 };
+                RegisterRequest registerRequest = new RegisterRequest(firstname, lastname, email, password, responseListener);
+                //RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
+                //queue.add(registerRequest);
                 break;
         }
     }
-    //RegisterRequest registerRequest = new RegisterRequest(firstname, lastname, email, password, responseListener);
-    //RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
-    //queue.add(registerRequest);
 }
