@@ -12,22 +12,29 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import com.android.volley.toolbox.Volley;
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
+
+    EditText etFirstName, etLastName, etEmail, etPassword;
+    Button bRegister;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        final EditText etFirstName = (EditText) findViewById(R.id.etFirstName);
-        final EditText etLastName = (EditText) findViewById(R.id.etLastName);
-        final EditText etEmail = (EditText) findViewById(R.id.etEmail);
-        final EditText etPassword = (EditText) findViewById(R.id.etPassword);
-        final Button bRegister = (Button) findViewById(R.id.bRegister);
+        etFirstName = (EditText) findViewById(R.id.etFirstName);
+        etLastName = (EditText) findViewById(R.id.etLastName);
+        etEmail = (EditText) findViewById(R.id.etEmail);
+        etPassword = (EditText) findViewById(R.id.etPassword);
+        bRegister = (Button) findViewById(R.id.bRegister);
 
-        bRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        bRegister.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.bRegister:
                 final String firstname = etFirstName.getText().toString();
                 final String lastname = etLastName.getText().toString();
                 final String email = etEmail.getText().toString();
@@ -40,7 +47,7 @@ public class RegisterActivity extends AppCompatActivity {
                             JSONObject jsonResponse = new JSONObject(response);
                             boolean success = jsonResponse.getBoolean("success");
 
-                            if(success) {
+                            if (success) {
                                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                                 RegisterActivity.this.startActivity(intent);
                             }
@@ -48,16 +55,16 @@ public class RegisterActivity extends AppCompatActivity {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
                                 builder.setMessage("Register Failed").setNegativeButton("Retry", null).create().show();
                             }
-                        }
+                        } 
                         catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
                 };
-                //RegisterRequest registerRequest = new RegisterRequest(firstname, lastname, email, password, responseListener);
-                //RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
-                //queue.add(registerRequest);
-            }
-        });
+                break;
+        }
     }
+    //RegisterRequest registerRequest = new RegisterRequest(firstname, lastname, email, password, responseListener);
+    //RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
+    //queue.add(registerRequest);
 }
