@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RegisterRequest extends StringRequest {
-    private static final String REGISTER_REQUEST_URL = "";
+    private static final String REGISTER_REQUEST_URL = "http://localhost/GTM%20Android%20Application/includes/Register.php";
     private Map<String, String> params;
 
     public RegisterRequest(String firstname, String lastname, String email, String password, Response.Listener<String> listener) {
