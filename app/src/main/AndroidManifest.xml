@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.gtmandroidapplication">
 
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
     <application
         tools:ignore="GoogleAppIndexingWarning"
         android:allowBackup="true"
