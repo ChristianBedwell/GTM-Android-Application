@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -62,8 +64,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     }
                 };
                 RegisterRequest registerRequest = new RegisterRequest(firstname, lastname, email, password, responseListener);
-                //RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
-                //queue.add(registerRequest);
+                RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
+                queue.add(registerRequest);
                 break;
         }
     }
