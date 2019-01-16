@@ -10,6 +10,7 @@ import android.widget.EditText;
 import com.android.volley.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
+import com.android.volley.toolbox.Volley;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -53,9 +54,9 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     }
                 };
-                RegisterRequest registerRequest = new RegisterRequest(firstname, lastname, email, password, responseListener);
-                RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
-                queue.add(registerRequest);
+                //RegisterRequest registerRequest = new RegisterRequest(firstname, lastname, email, password, responseListener);
+                //RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
+                //queue.add(registerRequest);
             }
         });
     }
