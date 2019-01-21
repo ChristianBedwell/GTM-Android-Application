@@ -22,10 +22,6 @@
             android:id="@+id/nav_messages_layout"
             android:icon="@drawable/ic_menu_messages"
             android:title="Messages" />
-        <item
-            android:id="@+id/nav_gallery_layout"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
     </group>
 
     <group
