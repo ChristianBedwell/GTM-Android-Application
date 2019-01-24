@@ -75,7 +75,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Password"
+            android:hint="••••••••••••••"
             android:inputType="textPassword" />
 
         <TextView
@@ -89,14 +89,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Confirm Password"
+            android:hint="••••••••••••••"
             android:inputType="textPersonName" />
 
         <Button
             android:id="@+id/bRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Register" />
+            android:text="Register"
+            android:textColor="@android:color/white"
+            android:background="@android:color/black"/>
 
     </LinearLayout>
 
