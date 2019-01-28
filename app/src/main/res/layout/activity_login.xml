@@ -24,6 +24,8 @@
         app:layout_constraintVertical_bias="0.0">
 
         <EditText
+            android:drawableStart="@drawable/ic_menu_email"
+            android:drawablePadding="10dp"
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,6 +34,8 @@
             android:inputType="textEmailAddress" />
 
         <EditText
+            android:drawableStart="@drawable/ic_menu_lock"
+            android:drawablePadding="10dp"
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
