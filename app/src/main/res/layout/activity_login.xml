@@ -1,29 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".LoginActivity">
-
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp"
+        android:background="@drawable/background"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin">
 
-        <EditText
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="240dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="16dp"
+                    android:layout_marginTop="48dp"
+                    android:layout_marginBottom="20dp"
+                    android:src="@drawable/placeholderlogo"/>
+                
+                <EditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:ems="10"
+                    android:background="@android:color/transparent"
+                    android:drawablePadding="12dp"
+                    android:padding="8dp"
+                    android:hint="Email"
+                    android:maxLines="1"
+                    android:drawableLeft="@drawable/ic_email_black_24dp"
+                    android:layout_marginTop="70dp"
+                    android:textColorHint="#fff"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#f9d7db"/>
+
+                <EditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:ems="10"
+                    android:background="@android:color/transparent"
+                    android:drawablePadding="12dp"
+                    android:padding="8dp"
+                    android:hint="Password"
+                    android:maxLines="1"
+                    android:drawableLeft="@drawable/ic_lock_black_24dp"
+                    android:layout_marginTop="4dp"
+                    android:textColorHint="#fff"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#f9d7db"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:buttonTint="#fff"
+                        android:textColor="#fff"
+                        android:text="Remember Me"
+                        android:padding="8dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#fff"
+                        android:text="Forgot Password?"
+                        android:padding="8dp"
+                        android:layout_marginTop="8dp"
+                        android:drawableLeft="@drawable/ic_lock_open_black_24dp"
+                        android:drawablePadding="12dp"/>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/bLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_login"
+                    android:text="Log In"
+                    android:textColor="#000000"
+                    android:padding="16dp"
+                    android:clickable="true"
+                    style="@style/Base.TextAppearance.AppCompat.Body1"
+                    android:layout_marginTop="24dp"/>
+
+                <Button
+                    android:id="@+id/registerLink"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_register"
+                    android:text="Register"
+                    android:textColor="#ffffff"
+                    android:padding="16dp"
+                    android:clickable="true"
+                    style="@style/Base.TextAppearance.AppCompat.Body1"
+                    android:layout_marginTop="8dp"/>
+            </LinearLayout>
+        </ScrollView>
+</LinearLayout>
+
+        <!--<EditText
             android:drawableStart="@drawable/ic_menu_email"
             android:drawablePadding="10dp"
             android:id="@+id/etEmail"
@@ -127,4 +223,4 @@
         </LinearLayout>
 
     </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>-->
