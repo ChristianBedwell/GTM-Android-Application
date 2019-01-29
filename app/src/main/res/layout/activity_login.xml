@@ -115,7 +115,7 @@
                     android:background="@drawable/background_register"
                     android:clickable="true"
                     android:padding="16dp"
-                    android:text="Sign up"
+                    android:text="Register"
                     android:textColor="#ffffff" />
             </LinearLayout>
         </ScrollView>
