@@ -43,7 +43,7 @@
                 android:selectAllOnFocus="false"
                 android:singleLine="false"
                 android:textColor="#fff"
-                android:textColorHint="#fff" />
+                android:textColorHint="#BAD8FF" />
 
             <EditText
                 android:id="@+id/etLastName"
@@ -58,7 +58,7 @@
                 android:maxLines="1"
                 android:layout_marginTop="12dp"
                 android:textColor="#fff"
-                android:textColorHint="#fff"/>
+                android:textColorHint="#BAD8FF"/>
 
             <EditText
                 android:id="@+id/etEmail"
@@ -73,7 +73,7 @@
                 android:maxLines="1"
                 android:layout_marginTop="12dp"
                 android:textColor="#fff"
-                android:textColorHint="#fff"/>
+                android:textColorHint="#BAD8FF"/>
 
             <EditText
                 android:id="@+id/etPassword"
@@ -88,7 +88,7 @@
                 android:maxLines="1"
                 android:layout_marginTop="12dp"
                 android:textColor="#fff"
-                android:textColorHint="#fff"/>
+                android:textColorHint="#BAD8FF"/>
 
             <Button
                 android:id="@+id/bRegister"
