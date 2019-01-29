@@ -45,11 +45,6 @@
                 android:textColor="#fff"
                 android:textColorHint="#fff" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#f9d7db"/>
-
             <EditText
                 android:id="@+id/etLastName"
                 android:layout_width="match_parent"
@@ -64,11 +59,6 @@
                 android:layout_marginTop="12dp"
                 android:textColor="#fff"
                 android:textColorHint="#fff"/>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#f9d7db"/>
 
             <EditText
                 android:id="@+id/etEmail"
@@ -85,11 +75,6 @@
                 android:textColor="#fff"
                 android:textColorHint="#fff"/>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#f9d7db"/>
-
             <EditText
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
@@ -105,11 +90,6 @@
                 android:textColor="#fff"
                 android:textColorHint="#fff"/>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#f9d7db"/>
-
             <Button
                 android:id="@+id/bRegister"
                 style="@style/Base.TextAppearance.AppCompat.Body1"
@@ -121,6 +101,12 @@
                 android:padding="16dp"
                 android:text="Register"
                 android:textColor="#3B5999" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#224080"
+                />
     </LinearLayout>
     </ScrollView>
 </LinearLayout>
