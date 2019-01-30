@@ -1,4 +1,4 @@
-package com.example.gtmandroidapplication;
+package com.example.gtmandroidapplication.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -13,6 +13,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.example.gtmandroidapplication.R;
+import com.example.gtmandroidapplication.fragment.HomeFragment;
+import com.example.gtmandroidapplication.fragment.JobsFragment;
+import com.example.gtmandroidapplication.fragment.MessagesFragment;
+import com.example.gtmandroidapplication.fragment.SettingsFragment;
+import com.example.gtmandroidapplication.fragment.WeatherFragment;
 
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

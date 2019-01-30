@@ -1,4 +1,4 @@
-package com.example.gtmandroidapplication;
+package com.example.gtmandroidapplication.app;
 
 import android.app.Application;
 import android.text.TextUtils;

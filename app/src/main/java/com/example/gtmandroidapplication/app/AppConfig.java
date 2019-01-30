@@ -1,4 +1,4 @@
-package com.example.gtmandroidapplication;
+package com.example.gtmandroidapplication.app;
 
 public class AppConfig {
     // Server user login url

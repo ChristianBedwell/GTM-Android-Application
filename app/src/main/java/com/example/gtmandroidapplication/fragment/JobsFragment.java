@@ -1,4 +1,4 @@
-package com.example.gtmandroidapplication;
+package com.example.gtmandroidapplication.fragment;
 
 import android.app.DatePickerDialog;
 import android.graphics.Bitmap;
@@ -18,6 +18,7 @@ import android.widget.ImageView;
 
 import java.util.Calendar;
 
+import com.example.gtmandroidapplication.R;
 import com.kd.dynamic.calendar.generator.ImageGenerator;
 
 public class JobsFragment extends Fragment {

@@ -1,4 +1,4 @@
-package com.example.gtmandroidapplication;
+package com.example.gtmandroidapplication.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,8 @@ import com.android.volley.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
 import com.android.volley.toolbox.Volley;
+import com.example.gtmandroidapplication.R;
+import com.example.gtmandroidapplication.RegisterRequest;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 

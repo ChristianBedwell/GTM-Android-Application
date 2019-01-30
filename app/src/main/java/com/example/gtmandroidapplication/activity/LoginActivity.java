@@ -1,6 +1,7 @@
-package com.example.gtmandroidapplication;
+package com.example.gtmandroidapplication.activity;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,19 +11,32 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.android.volley.RequestQueue;
+import com.android.volley.Request.Method;
 import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import com.android.volley.toolbox.Volley;
+import com.example.gtmandroidapplication.fragment.HomeFragment;
+import com.example.gtmandroidapplication.LoginRequest;
+import com.example.gtmandroidapplication.R;
+import com.example.gtmandroidapplication.helper.SQLiteHandler;
+import com.example.gtmandroidapplication.helper.SessionManager;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button bLogin;
-    Button registerLink;
-    TextView tvForgotPassword;
-    CheckBox cbRememberMe;
-    EditText etEmail, etPassword;
+    private static final String TAG = RegisterActivity.class.getSimpleName();
+    private Button bLogin;
+    private Button registerLink;
+    private EditText etEmail, etPassword;
+    private ProgressDialog pDialog;
+    private SessionManager session;
+    private SQLiteHandler db;
+    private TextView tvForgotPassword;
+    private CheckBox cbRememberMe;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
