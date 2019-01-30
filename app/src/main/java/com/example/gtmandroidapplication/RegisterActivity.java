@@ -16,7 +16,7 @@ import com.android.volley.toolbox.Volley;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
-    EditText etFirstName, etLastName, etEmail, etPassword;
+    EditText etFullName, etEmail, etPassword;
     Button bRegister;
 
     @Override
@@ -24,8 +24,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        etFirstName = (EditText) findViewById(R.id.etFirstName);
-        etLastName = (EditText) findViewById(R.id.etLastName);
+        etFullName = (EditText) findViewById(R.id.etFullName);
         etEmail = (EditText) findViewById(R.id.etEmail);
         etPassword = (EditText) findViewById(R.id.etPassword);
         bRegister = (Button) findViewById(R.id.bRegister);
@@ -37,8 +36,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bRegister:
-                final String firstname = etFirstName.getText().toString();
-                final String lastname = etLastName.getText().toString();
+                final String fullname = etFullName.getText().toString();
                 final String email = etEmail.getText().toString();
                 final String password = etPassword.getText().toString();
 
@@ -63,7 +61,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         }
                     }
                 };
-                RegisterRequest registerRequest = new RegisterRequest(firstname, lastname, email, password, responseListener);
+                RegisterRequest registerRequest = new RegisterRequest(fullname, email, password, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
                 queue.add(registerRequest);
                 break;
