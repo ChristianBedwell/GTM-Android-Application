@@ -106,7 +106,7 @@
                     android:background="#224080" />
 
                 <Button
-                    android:id="@+id/registerLink"
+                    android:id="@+id/bRegister"
                     style="@style/Base.TextAppearance.AppCompat.Body1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
