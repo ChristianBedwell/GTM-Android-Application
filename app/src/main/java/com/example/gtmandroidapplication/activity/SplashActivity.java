@@ -1,9 +1,11 @@
-package com.example.gtmandroidapplication;
+package com.example.gtmandroidapplication.activity;
 
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.gtmandroidapplication.R;
 
 public class SplashActivity extends AppCompatActivity {
 

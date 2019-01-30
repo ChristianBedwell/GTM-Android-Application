@@ -1,4 +1,4 @@
-package com.example.gtmandroidapplication;
+package com.example.gtmandroidapplication.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,14 +8,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class MessagesFragment extends Fragment {
+import com.example.gtmandroidapplication.R;
+
+public class SettingsFragment extends Fragment {
 
     View myView;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        myView = inflater.inflate(R.layout.messages_layout, container,false);
+        myView = inflater.inflate(R.layout.settings_layout, container,false);
         return myView;
     }
 }

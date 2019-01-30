@@ -1,7 +1,9 @@
-package com.example.gtmandroidapplication;
+package com.example.gtmandroidapplication.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.gtmandroidapplication.R;
 
 public class ForgotPasswordActivity extends AppCompatActivity {
 
