@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -18,7 +19,9 @@ import com.android.volley.toolbox.Volley;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button bLogin;
-    TextView registerLink;
+    Button registerLink;
+    TextView tvForgotPassword;
+    CheckBox cbRememberMe;
     EditText etEmail, etPassword;
 
     @Override
@@ -29,9 +32,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         etEmail = (EditText) findViewById(R.id.etEmail);
         etPassword = (EditText) findViewById(R.id.etPassword);
         bLogin = (Button) findViewById(R.id.bLogin);
-        registerLink = (TextView) findViewById(R.id.registerLink);
+        tvForgotPassword = (TextView) findViewById(R.id.tvForgotPassword);
+        cbRememberMe = (CheckBox) findViewById(R.id.cbRememberMe);
+        registerLink = (Button) findViewById(R.id.registerLink);
 
         bLogin.setOnClickListener(this);
+        tvForgotPassword.setOnClickListener(this);
+        cbRememberMe.setOnClickListener(this);
         registerLink.setOnClickListener(this);
     }
 
@@ -72,6 +79,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.registerLink:
                 Intent registerIntent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(registerIntent);
+                break;
+
+            case R.id.tvForgotPassword:
+                Intent forgotPasswordIntent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
+                startActivity(forgotPasswordIntent);
+                break;
+
+            case R.id.cbRememberMe:
+                // Content goes here
                 break;
         }
     }
