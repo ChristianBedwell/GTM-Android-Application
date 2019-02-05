@@ -16,7 +16,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.gtmandroidapplication.R;
-import com.example.gtmandroidapplication.fragment.HomeFragment;
 import com.example.gtmandroidapplication.fragment.JobsFragment;
 import com.example.gtmandroidapplication.fragment.MessagesFragment;
 import com.example.gtmandroidapplication.fragment.SettingsFragment;
@@ -56,7 +55,8 @@ public class NavigationActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
+        }
+        else {
             super.onBackPressed();
         }
     }
@@ -83,7 +83,6 @@ public class NavigationActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.

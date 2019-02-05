@@ -28,7 +28,6 @@ import com.example.gtmandroidapplication.app.AppConfig;
 import com.example.gtmandroidapplication.app.AppController;
 import com.example.gtmandroidapplication.helper.SQLiteHandler;
 import com.example.gtmandroidapplication.helper.SessionManager;
-import com.example.gtmandroidapplication.fragment.HomeFragment;
 
 public class LoginActivity extends Activity {
 

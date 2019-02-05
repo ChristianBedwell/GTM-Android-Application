@@ -10,12 +10,13 @@ import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.HashMap;
 
-public class HomeActivity extends FragmentActivity {
+public class HomeActivity extends NavigationActivity {
 
-    private EditText etFullName;
+    private TextView tvFullName;
     private Button bLogout;
 
     private SQLiteHandler db;
@@ -26,7 +27,7 @@ public class HomeActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_layout);
 
-        etFullName = (EditText) findViewById(R.id.etFullName);
+        tvFullName = (TextView) findViewById(R.id.tvFullName);
         bLogout = (Button) findViewById(R.id.bLogout);
 
         // SqLite database handler
@@ -45,7 +46,7 @@ public class HomeActivity extends FragmentActivity {
         String name = user.get("name");
 
         // Displaying the user details on the screen
-        /*etFullName.setText(name);*/
+        tvFullName.setText(name + "!");
 
         // Logout button click event
         bLogout.setOnClickListener(new View.OnClickListener() {

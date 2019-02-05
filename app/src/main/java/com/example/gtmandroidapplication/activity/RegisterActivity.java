@@ -25,7 +25,6 @@ import java.util.Map;
 import com.example.gtmandroidapplication.R;
 import com.example.gtmandroidapplication.app.AppConfig;
 import com.example.gtmandroidapplication.app.AppController;
-import com.example.gtmandroidapplication.fragment.HomeFragment;
 import com.example.gtmandroidapplication.helper.SQLiteHandler;
 import com.example.gtmandroidapplication.helper.SessionManager;
 
