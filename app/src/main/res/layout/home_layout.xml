@@ -38,7 +38,6 @@
                 android:text="admin_name!"
                 android:textSize="18sp"
                 android:textStyle="bold" />
-
         </LinearLayout>
 
         <TextView
