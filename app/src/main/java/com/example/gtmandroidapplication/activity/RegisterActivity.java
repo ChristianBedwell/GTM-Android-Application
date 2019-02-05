@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request.Method;
@@ -35,6 +36,7 @@ public class RegisterActivity extends Activity {
     private EditText etEmail;
     private EditText etPassword;
     private Button bRegister;
+    private TextView tvLoginLink;
     private ProgressDialog pDialog;
     private SessionManager session;
     private SQLiteHandler db;
@@ -48,6 +50,7 @@ public class RegisterActivity extends Activity {
         etEmail = (EditText) findViewById(R.id.etEmail);
         etPassword = (EditText) findViewById(R.id.etPassword);
         bRegister = (Button) findViewById(R.id.bRegister);
+        tvLoginLink = (TextView) findViewById(R.id.tvLoginLink);
 
         // Progress dialog
         pDialog = new ProgressDialog(this);
@@ -63,7 +66,7 @@ public class RegisterActivity extends Activity {
         if (session.isLoggedIn()) {
             // User is already logged in. Take him to main activity
             Intent intent = new Intent(RegisterActivity.this,
-                    HomeFragment.class);
+                    HomeActivity.class);
             startActivity(intent);
             finish();
         }
@@ -82,6 +85,17 @@ public class RegisterActivity extends Activity {
                             "Please enter your details!", Toast.LENGTH_LONG)
                             .show();
                 }
+            }
+        });
+
+        // Link to Login Screen
+        tvLoginLink.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),
+                        LoginActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

@@ -1,5 +1,6 @@
 package com.example.gtmandroidapplication.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -90,22 +91,25 @@ public class NavigationActivity extends AppCompatActivity
         FragmentManager fragmentManager = getSupportFragmentManager();
 
         if (id == R.id.nav_home_layout) {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.content_frame, new HomeFragment())
-                    .commit();
-        } else if (id == R.id.nav_weather_layout) {
+            Intent intent = new Intent(NavigationActivity.this, HomeActivity.class);
+            startActivity(intent);
+        }
+        else if (id == R.id.nav_weather_layout) {
             fragmentManager.beginTransaction()
                     .replace(R.id.content_frame, new WeatherFragment())
                     .commit();
-        } else if (id == R.id.nav_jobs_layout) {
+        }
+        else if (id == R.id.nav_jobs_layout) {
             fragmentManager.beginTransaction()
                     .replace(R.id.content_frame, new JobsFragment())
                     .commit();
-        } else if (id == R.id.nav_messages_layout) {
+        }
+        else if (id == R.id.nav_messages_layout) {
             fragmentManager.beginTransaction()
                     .replace(R.id.content_frame, new MessagesFragment())
                     .commit();
-        } else if (id == R.id.nav_settings_layout) {
+        }
+        else if (id == R.id.nav_settings_layout) {
             fragmentManager.beginTransaction()
                     .replace(R.id.content_frame, new SettingsFragment())
                     .commit();
