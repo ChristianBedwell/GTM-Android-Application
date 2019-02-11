@@ -5,11 +5,11 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.design.widget.Snackbar;
-import android.support.v7.widget.AppCompatButton;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -20,6 +20,8 @@ import com.example.gtmandroidapplication.RequestInterface;
 import com.example.gtmandroidapplication.models.ServerRequest;
 import com.example.gtmandroidapplication.models.ServerResponse;
 import com.example.gtmandroidapplication.models.User;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,7 +30,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ResetPasswordFragment extends Fragment implements View.OnClickListener{
 
-    private AppCompatButton bReset;
+    private Button bReset;
     private EditText etEmail,etCode,etPassword;
     private TextView tvTimer;
     private ProgressBar progress;
@@ -44,18 +46,18 @@ public class ResetPasswordFragment extends Fragment implements View.OnClickListe
         return view;
     }
 
-    private void initViews(View view){
+    private void initViews(View view) {
 
-        bReset = (AppCompatButton)view.findViewById(R.id.bReset);
-        tvTimer = (TextView)view.findViewById(R.id.tvTimer);
-        etCode = (EditText)view.findViewById(R.id.etCode);
-        etEmail = (EditText)view.findViewById(R.id.etEmail);
-        etPassword = (EditText)view.findViewById(R.id.etPassword);
+        bReset = (Button) view.findViewById(R.id.bReset);
+        tvTimer = (TextView) view.findViewById(R.id.tvTimer);
+        etCode = (EditText) view.findViewById(R.id.etCode);
+        etEmail = (EditText) view.findViewById(R.id.etEmail);
+        etPassword = (EditText) view.findViewById(R.id.etPassword);
         etPassword.setVisibility(View.GONE);
         etCode.setVisibility(View.GONE);
         tvTimer.setVisibility(View.GONE);
         bReset.setOnClickListener(this);
-        progress = (ProgressBar)view.findViewById(R.id.progress);
+        progress = (ProgressBar) view.findViewById(R.id.progress);
 
     }
 
@@ -73,7 +75,7 @@ public class ResetPasswordFragment extends Fragment implements View.OnClickListe
                         initiateResetPasswordProcess(email);
                     } else {
 
-                        Snackbar.make(getView(), "Fields are empty !", Snackbar.LENGTH_LONG).show();
+                        Snackbar.make(getView(), "Fields are empty!", Snackbar.LENGTH_LONG).show();
                     }
                 } else {
 
@@ -85,7 +87,7 @@ public class ResetPasswordFragment extends Fragment implements View.OnClickListe
                         finishResetPasswordProcess(email,code,password);
                     } else {
 
-                        Snackbar.make(getView(), "Fields are empty !", Snackbar.LENGTH_LONG).show();
+                        Snackbar.make(getView(), "Fields are empty!", Snackbar.LENGTH_LONG).show();
                     }
 
                 }
@@ -96,9 +98,13 @@ public class ResetPasswordFragment extends Fragment implements View.OnClickListe
 
     private void initiateResetPasswordProcess(String email){
 
+        Gson gson = new GsonBuilder()
+                .setLenient()
+                .create();
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
         RequestInterface requestInterface = retrofit.create(RequestInterface.class);
@@ -128,7 +134,8 @@ public class ResetPasswordFragment extends Fragment implements View.OnClickListe
                     isResetInitiated = true;
                     startCountdownTimer();
 
-                } else {
+                }
+                else {
 
                     Snackbar.make(getView(), resp.getMessage(), Snackbar.LENGTH_LONG).show();
 
@@ -149,9 +156,13 @@ public class ResetPasswordFragment extends Fragment implements View.OnClickListe
 
     private void finishResetPasswordProcess(String email,String code, String password){
 
+        Gson gson = new GsonBuilder()
+                .setLenient()
+                .create();
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
         RequestInterface requestInterface = retrofit.create(RequestInterface.class);
