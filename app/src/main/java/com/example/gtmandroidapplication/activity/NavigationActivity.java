@@ -1,7 +1,8 @@
 package com.example.gtmandroidapplication.activity;
 
-import android.content.Intent;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -11,37 +12,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import com.example.gtmandroidapplication.R;
 import com.example.gtmandroidapplication.fragment.JobsFragment;
 import com.example.gtmandroidapplication.fragment.MessagesFragment;
+import com.example.gtmandroidapplication.fragment.ProfileFragment;
 import com.example.gtmandroidapplication.fragment.SettingsFragment;
 import com.example.gtmandroidapplication.fragment.WeatherFragment;
-import com.example.gtmandroidapplication.helper.SQLiteHandler;
-import com.example.gtmandroidapplication.helper.SessionManager;
-
-import java.util.HashMap;
 
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
-   /* private TextView tvFullNameNav;
-    private SQLiteHandler db;
-    private SessionManager session;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
-
-       /* tvFullNameNav = (TextView) findViewById(R.id.tvFullNameNav);
-
-        // SqLite database handler
-        db = new SQLiteHandler(getApplicationContext());
-
-        // session manager
-        session = new SessionManager(getApplicationContext());*/
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -54,14 +39,6 @@ public class NavigationActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-       /* // Fetching user details from sqlite
-        HashMap<String, String> user = db.getUserDetails();
-
-        String name = user.get("name");
-
-        // Displaying the user details on the screen
-        tvFullNameNav.setText(name);*/
     }
 
     @Override
@@ -104,28 +81,34 @@ public class NavigationActivity extends AppCompatActivity
         FragmentManager fragmentManager = getSupportFragmentManager();
 
         if (id == R.id.nav_home_layout) {
-            Intent intent = new Intent(NavigationActivity.this, HomeActivity.class);
-            startActivity(intent);
+            Fragment profile = new ProfileFragment();
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.replace(R.id.fragment_frame, profile);
+            ft.commit();
         }
         else if (id == R.id.nav_weather_layout) {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.content_frame, new WeatherFragment())
-                    .commit();
+            Fragment weather = new WeatherFragment();
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.replace(R.id.fragment_frame, weather);
+            ft.commit();
         }
         else if (id == R.id.nav_jobs_layout) {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.content_frame, new JobsFragment())
-                    .commit();
+            Fragment jobs = new JobsFragment();
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.replace(R.id.fragment_frame, jobs);
+            ft.commit();
         }
         else if (id == R.id.nav_messages_layout) {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.content_frame, new MessagesFragment())
-                    .commit();
+            Fragment messages = new MessagesFragment();
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.replace(R.id.fragment_frame, messages);
+            ft.commit();
         }
         else if (id == R.id.nav_settings_layout) {
-            fragmentManager.beginTransaction()
-                    .replace(R.id.content_frame, new SettingsFragment())
-                    .commit();
+            Fragment settings = new SettingsFragment();
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.replace(R.id.fragment_frame, settings);
+            ft.commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
