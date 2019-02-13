@@ -10,7 +10,6 @@ public class Constants {
     public static final String RESET_PASSWORD_FINISH = "resPass";
 
     public static final String SUCCESS = "success";
-    public static final String FAILURE = "failure";
     public static final String IS_LOGGED_IN = "isLoggedIn";
 
     public static final String NAME = "name";

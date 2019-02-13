@@ -53,7 +53,7 @@
                 android:layout_alignParentRight="true"
                 android:background="@color/white"
                 android:textColor="#3B5999"
-                android:text="Logout" />
+                android:text="Log out" />
 
         </RelativeLayout>
     </LinearLayout>

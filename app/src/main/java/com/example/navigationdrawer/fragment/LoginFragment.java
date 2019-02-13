@@ -1,5 +1,6 @@
 package com.example.navigationdrawer.fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -48,7 +49,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
 
     private void initViews(View view){
 
-        pref = getActivity().getPreferences(0);
+        pref = getActivity().getSharedPreferences("Constants", Context.MODE_PRIVATE);
 
         bLogin = (Button) view.findViewById(R.id.bLogin);
         bRegister = (Button) view.findViewById(R.id.bRegister);

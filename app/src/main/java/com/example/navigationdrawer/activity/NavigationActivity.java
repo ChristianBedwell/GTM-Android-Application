@@ -1,5 +1,6 @@
 package com.example.navigationdrawer.activity;
 
+import android.content.Context;
 import android.support.v4.app.FragmentTransaction;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
@@ -10,7 +11,13 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.Layout;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
 import com.example.navigationdrawer.Constants;
 import com.example.navigationdrawer.fragment.HomeFragment;
 import com.example.navigationdrawer.fragment.JobsFragment;
@@ -24,12 +31,14 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
 
     private DrawerLayout drawer;
     private SharedPreferences pref;
+    private TextView tvFullName;
+    private Button bLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
-        pref = getPreferences(0);
+        pref = getSharedPreferences("Constants", Context.MODE_PRIVATE);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -37,6 +46,15 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //tvFullName = navigationView.findViewById(R.id.tvFullName);
+        //tvFullName.setText(pref.getString("NAME","[NAME]"));
+        /*bLogout = (Button)navigationView.findViewById(R.id.bLogout);
+        bLogout.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                logout();
+            }
+        });*/
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -78,9 +96,6 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new SettingsFragment()).commit();
                 break;
-            case R.id.bLogout:
-                logout();
-                break;
         }
         drawer.closeDrawer(GravityCompat.START);
         setTitle(menuItem.getTitle());
@@ -97,8 +112,7 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
         goToLogin();
     }
 
-    private void goToLogin(){
-
+    private void goToLogin() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.fragment_frame, new LoginFragment());
         ft.commit();

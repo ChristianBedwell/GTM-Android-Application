@@ -1,6 +1,7 @@
 package com.example.navigationdrawer.fragment;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -21,7 +22,7 @@ public class HomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home,container,false);
+        View view = inflater.inflate(R.layout.fragment_home, container,false);
         tvFullName = (TextView) view.findViewById(R.id.tvFullName);
         tvWelcomeMessage = (TextView) view.findViewById(R.id.tvWelcomeMessage);
         return view;
@@ -31,9 +32,9 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
-        pref = getActivity().getPreferences(0);
-        tvFullName.setText("Welcome, " + pref.getString(Constants.NAME,"") + "!");
-        tvWelcomeMessage.setText("Here in this companion app, you will find all features suited " +
-                "for your niche. Click on the navigation menu ☰ to begin!");
+
+        pref = getActivity().getSharedPreferences("Constants", Context.MODE_PRIVATE);
+        tvFullName.setText("Welcome to the GTM Home Services Companion App!");
+        tvWelcomeMessage.setText("Click on the navigation menu (☰) to begin exploring what the app has to offer!");
     }
 }
