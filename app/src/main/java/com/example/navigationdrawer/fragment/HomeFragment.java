@@ -15,7 +15,7 @@ import com.example.navigationdrawer.R;
 
 public class HomeFragment extends Fragment {
 
-    private TextView tvFullName,tvWelcomeMessage,tvStatusMessage;
+    private TextView tvFullName,tvWelcomeMessage;
     private SharedPreferences pref;
 
     @Nullable

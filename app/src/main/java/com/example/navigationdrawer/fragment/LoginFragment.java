@@ -1,5 +1,6 @@
 package com.example.navigationdrawer.fragment;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.content.SharedPreferences;
@@ -16,6 +17,8 @@ import android.widget.TextView;
 import com.example.navigationdrawer.Constants;
 import com.example.navigationdrawer.R;
 import com.example.navigationdrawer.RequestInterface;
+import com.example.navigationdrawer.activity.MainActivity;
+import com.example.navigationdrawer.activity.NavigationActivity;
 import com.example.navigationdrawer.models.ServerRequest;
 import com.example.navigationdrawer.models.ServerResponse;
 import com.example.navigationdrawer.models.User;
@@ -147,10 +150,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
     }
 
     private void goToHome(){
-
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.fragment_frame, new HomeFragment());
-        ft.commit();
+        Intent homeIntent = new Intent(getActivity(), NavigationActivity.class);
+        startActivity(homeIntent);
     }
 
     private void goToResetPassword(){

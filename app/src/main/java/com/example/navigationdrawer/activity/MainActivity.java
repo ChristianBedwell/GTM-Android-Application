@@ -1,5 +1,6 @@
 package com.example.navigationdrawer.activity;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentTransaction;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
@@ -24,9 +25,8 @@ public class MainActivity extends AppCompatActivity {
     private void initFragment(){
 
         if(pref.getBoolean(Constants.IS_LOGGED_IN,false)) {
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.fragment_frame, new HomeFragment());
-            ft.commit();
+            Intent homeIntent = new Intent(MainActivity.this, NavigationActivity.class);
+            startActivity(homeIntent);
         }
         else {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();

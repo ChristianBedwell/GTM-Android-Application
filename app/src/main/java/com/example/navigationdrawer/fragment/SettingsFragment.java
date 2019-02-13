@@ -48,12 +48,12 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
         pref = getActivity().getPreferences(0);
     }
 
-    private void initViews(View view){
+    private void initViews(View view) {
         bChangePassword = (Button) view.findViewById(R.id.bChangePassword);
         bChangePassword.setOnClickListener(this);
     }
 
-    private void showDialog(){
+    private void showDialog() {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
