@@ -17,4 +17,12 @@ public class ServerResponse {
     public User getUser() {
         return user;
     }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }

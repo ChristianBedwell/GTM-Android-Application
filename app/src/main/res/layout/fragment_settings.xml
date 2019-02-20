@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_marginLeft="40dp"
     android:layout_marginRight="40dp"
@@ -7,18 +7,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/bChangePassword"
-        android:layout_marginTop="40dp"
-        android:text="Change Password"
-        android:background="@drawable/button_blue"
-        android:textColor="@android:color/white"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    <PreferenceCategory
+        android:key="user_category"
+        android:title="USER">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#224080" />
+        <EditTextPreference
+            android:dialogTitle="Your name">
+        </EditTextPreference>
 
-</LinearLayout>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="password_category"
+        android:title="PASSWORD">
+
+        <Button
+            android:id="@+id/bChangePassword"
+            android:layout_marginTop="40dp"
+            android:text="Change Password"
+            android:background="@drawable/button_blue"
+            android:textColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#224080" />
+
+    </PreferenceCategory>
+</PreferenceScreen>

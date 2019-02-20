@@ -12,4 +12,12 @@ public class ServerRequest {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public String getOperation() {
+        return operation;
+    }
+
+    public User getUser() {
+        return user;
+    }
 }
