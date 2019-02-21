@@ -1,12 +1,10 @@
-/*
-package com.example.navigationdrawer.activity;
+package com.example.navigationdrawer.models;
 
 import android.content.Intent;
 
 import com.example.navigationdrawer.activity.MainActivity;
 import com.example.navigationdrawer.activity.SplashActivity;
 
-import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
@@ -30,4 +28,4 @@ public class SplashActivityTest {
 
         assertEquals(expectedIntent,shadowOf(splashScreenActivity).getNextStartedActivity());
     }
-}*/
+}

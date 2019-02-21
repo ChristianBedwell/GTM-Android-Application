@@ -1,7 +1,10 @@
 package com.example.navigationdrawer.activity;
 
+import android.support.test.InstrumentationRegistry;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
+import android.view.Gravity;
+
 import com.example.navigationdrawer.R;
 import com.example.navigationdrawer.fragment.HomeFragment;
 import com.example.navigationdrawer.fragment.JobsFragment;
@@ -13,6 +16,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.hasDescendant;
@@ -24,7 +28,8 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 public class NavigationActivityTest {
 
     @Rule
-    public final ActivityTestRule<NavigationActivity> testRule = new ActivityTestRule<>(NavigationActivity.class);
+    public final ActivityTestRule<NavigationActivity> testRule
+            = new ActivityTestRule<>(NavigationActivity.class, false, true);
 
     @Test
     public void homeTest() {
@@ -37,11 +42,10 @@ public class NavigationActivityTest {
 
     @Test
     public void weatherTest() {
-        WeatherFragment fragment = new WeatherFragment();
-        testRule.getActivity().getSupportFragmentManager().beginTransaction()
-                .add(R.id.fragment_container, fragment).commit();
+        openActionBarOverflowOrOptionsMenu(testRule.getActivity());
+        onView(withText("Weather")).perform(click());
 
-        onView(withId(R.id.drawer_layout)).check(matches(hasDescendant(withText("Weather"))));
+        //onView(withId(R.id.nav_weather)).check(matches(hasDescendant(withText("Weather"))));
     }
 
     @Test

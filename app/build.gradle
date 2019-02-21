@@ -3,6 +3,9 @@ apply plugin: 'jacoco'
 
 android {
     compileSdkVersion 28
+    testOptions {
+        unitTests.includeAndroidResources = true
+    }
     defaultConfig {
         applicationId "com.example.navigationdrawer"
         minSdkVersion 15
@@ -36,5 +39,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test:rules:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    testImplementation 'org.robolectric:robolectric:4.2'
     implementation 'com.github.sillebille:dynamic-calendar:1.0.1'
 }

@@ -16,8 +16,4 @@ public class ServerRequest {
     public String getOperation() {
         return operation;
     }
-
-    public User getUser() {
-        return user;
-    }
 }
