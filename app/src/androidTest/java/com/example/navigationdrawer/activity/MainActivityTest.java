@@ -32,17 +32,11 @@ public class MainActivityTest extends AppCompatActivity {
     public final ActivityTestRule<MainActivity> testRule
             = new ActivityTestRule<>(MainActivity.class, false, false);
 
-    private static final Intent intent = new Intent(MainActivity.class);
-
-    @Before
-    public void setup() {
-        testRule.launchActivity(intent);
-    }
-
     @Test
     public void signUpTest () {
         LoginFragment loginFragment = new LoginFragment();
-        testRule.getActivity().getSupportFragmentManager().beginTransaction();
+        testRule.getActivity().getSupportFragmentManager().beginTransaction()
+            .add(R.id.fragment_container, loginFragment).commit();
         onView(withId(R.id.bRegister)).perform(click());
         onView(withId(R.id.fragment_register).check(matches(isDisplayed())));
     }
