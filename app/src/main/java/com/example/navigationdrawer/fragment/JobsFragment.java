@@ -23,12 +23,12 @@ import com.kd.dynamic.calendar.generator.ImageGenerator;
 
 public class JobsFragment extends Fragment {
 
-    View myView;
-    EditText mDateEditText;
-    Calendar mCurrentDate;
-    Bitmap mGeneratedDateIcon;
-    ImageGenerator mImageGenerator;
-    ImageView mDisplayGeneratedImage;
+    private View myView;
+    private EditText mDateEditText;
+    private Calendar mCurrentDate;
+    private Bitmap mGeneratedDateIcon;
+    private ImageGenerator mImageGenerator;
+    private ImageView mDisplayGeneratedImage;
 
     @Nullable
     @Override
