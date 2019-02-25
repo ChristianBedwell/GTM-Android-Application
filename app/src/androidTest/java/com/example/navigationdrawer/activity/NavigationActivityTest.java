@@ -1,5 +1,6 @@
 package com.example.navigationdrawer.activity;
 
+import android.support.test.espresso.Espresso;
 import android.support.test.espresso.contrib.DrawerActions;
 import android.support.test.espresso.contrib.NavigationViewActions;
 import android.support.test.rule.ActivityTestRule;
@@ -11,9 +12,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.action.ViewActions.click;
-import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
 @RunWith(AndroidJUnit4.class)
@@ -21,7 +19,7 @@ public class NavigationActivityTest {
 
     @Rule
     public final ActivityTestRule<NavigationActivity> testRule
-            = new ActivityTestRule<>(NavigationActivity.class, true, true);
+            = new ActivityTestRule<>(NavigationActivity.class);
 
     @Test
     public void homeTest() {
@@ -47,16 +45,15 @@ public class NavigationActivityTest {
         onView(withId(R.id.nav_view)).perform(NavigationViewActions.navigateTo(R.id.nav_messages));
     }
 
-    /*@Test
+    @Test
     public void settingsTest() {
         onView(withId(R.id.drawer_layout)).perform(DrawerActions.open());
         onView(withId(R.id.nav_view)).perform(NavigationViewActions.navigateTo(R.id.nav_settings));
-    }*/
+    }
 
     @Test
     public void onBackPressed() {
-        onView(withId(R.id.drawer_layout))
-                .perform(click())
-                .check(matches(isDisplayed()));
+        onView(withId(R.id.drawer_layout)).perform(DrawerActions.open());
+        Espresso.pressBack();
     }
 }
