@@ -83,12 +83,14 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
             public void onClick(View v) {
                 String old_password = etOldPassword.getText().toString();
                 String new_password = etNewPassword.getText().toString();
-                if(!old_password.isEmpty() && !new_password.isEmpty()){
+                if(!old_password.isEmpty() && !new_password.isEmpty()) {
 
                     progress.setVisibility(View.VISIBLE);
                     changePasswordProcess(pref.getString(Constants.EMAIL,""),old_password,new_password);
 
-                }else {
+                }
+
+                else {
 
                     tvStatusMessage.setVisibility(View.VISIBLE);
                     tvStatusMessage.setText("Fields are empty");
@@ -99,7 +101,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
 
             case R.id.bChangePassword:
                 showDialog();
@@ -130,18 +132,16 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
             public void onResponse(Call<ServerResponse> call, retrofit2.Response<ServerResponse> response) {
 
                 ServerResponse resp = response.body();
-                if(resp.getResult().equals(Constants.SUCCESS)){
+                if(resp.getResult().equals(Constants.SUCCESS)) {
                     progress.setVisibility(View.GONE);
                     tvStatusMessage.setVisibility(View.GONE);
                     dialog.dismiss();
                     Snackbar.make(getView(), resp.getMessage(), Snackbar.LENGTH_LONG).show();
-
                 }
                 else {
                     progress.setVisibility(View.GONE);
                     tvStatusMessage.setVisibility(View.VISIBLE);
                     tvStatusMessage.setText(resp.getMessage());
-
                 }
             }
 
@@ -152,7 +152,6 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
                 progress.setVisibility(View.GONE);
                 tvStatusMessage.setVisibility(View.VISIBLE);
                 tvStatusMessage.setText(t.getLocalizedMessage());
-
             }
         });
     }
