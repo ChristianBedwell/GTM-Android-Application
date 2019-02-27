@@ -24,13 +24,13 @@ public class MainActivityTest {
     public final ActivityTestRule<MainActivity> testRule
             = new ActivityTestRule<>(MainActivity.class);
 
-    @Test
+    /*@Test
     public void signUpTest () {
         LoginFragment loginFragment = new LoginFragment();
         testRule.getActivity().getSupportFragmentManager().beginTransaction()
             .add(R.id.fragment_frame, loginFragment).commit();
         onView(withId(R.id.bRegisterLink)).perform(click());
-    }
+    }*/
 
     @Test
     public void signInTest () {
@@ -40,7 +40,7 @@ public class MainActivityTest {
         onView(withId(R.id.tvLoginLink)).perform(click());
     }
 
-    @Test
+   /* @Test
     public void registerTest () {
         RegisterFragment registerFragment = new RegisterFragment();
         testRule.getActivity().getSupportFragmentManager().beginTransaction()
@@ -50,9 +50,9 @@ public class MainActivityTest {
         onView(withId(R.id.etEmail)).perform(clearText(), typeText("bedwellhb@gmail.com"));
         onView(withId(R.id.etPassword)).perform(clearText(), typeText("test123"));
         onView(withId(R.id.bRegister)).perform(click());
-    }
+    }*/
 
-    @Test
+   /* @Test
     public void loginTest() {
         LoginFragment loginFragment = new LoginFragment();
         testRule.getActivity().getSupportFragmentManager().beginTransaction()
@@ -61,5 +61,5 @@ public class MainActivityTest {
         onView(withId(R.id.etEmail)).perform(clearText(), typeText("bedwellhb@gmail.com"));
         onView(withId(R.id.etPassword)).perform(clearText(), typeText("test123"));
         onView(withId(R.id.bLogin)).perform(click());
-    }
+    }*/
 }

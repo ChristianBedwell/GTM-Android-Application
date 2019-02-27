@@ -69,7 +69,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
         switch (v.getId()){
 
-            case R.id.bRegister:
+            case R.id.bRegisterLink:
                 goToRegister();
                 break;
 
