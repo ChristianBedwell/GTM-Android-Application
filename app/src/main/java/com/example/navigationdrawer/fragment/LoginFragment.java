@@ -18,7 +18,6 @@ import android.widget.TextView;
 import com.example.navigationdrawer.Constants;
 import com.example.navigationdrawer.R;
 import com.example.navigationdrawer.RequestInterface;
-import com.example.navigationdrawer.activity.MainActivity;
 import com.example.navigationdrawer.activity.NavigationActivity;
 import com.example.navigationdrawer.models.ServerRequest;
 import com.example.navigationdrawer.models.ServerResponse;
@@ -146,7 +145,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     private void goToRegister(){
 
         FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.fragment_frame, new RegisterFragment());
+        ft.replace(R.id.fragment_frame, new com.example.navigationdrawer.fragment.RegisterFragment());
         ft.commit();
     }
 
@@ -158,7 +157,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     private void goToResetPassword(){
 
         FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.replace(R.id.fragment_frame, new ResetPasswordFragment());
+        ft.replace(R.id.fragment_frame, new com.example.navigationdrawer.fragment.ResetPasswordFragment());
         ft.commit();
     }
 }

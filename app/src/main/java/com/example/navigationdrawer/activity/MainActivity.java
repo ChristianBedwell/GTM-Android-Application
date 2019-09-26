@@ -6,8 +6,9 @@ import android.support.v4.app.FragmentTransaction;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import com.example.navigationdrawer.Constants;
+
 import com.example.navigationdrawer.R;
+import com.example.navigationdrawer.Constants;
 import com.example.navigationdrawer.fragment.LoginFragment;
 
 public class MainActivity extends AppCompatActivity {

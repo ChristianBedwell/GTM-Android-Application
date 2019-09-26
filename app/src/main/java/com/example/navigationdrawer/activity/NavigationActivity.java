@@ -11,8 +11,6 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.text.Layout;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -47,15 +45,15 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        //tvFullName = navigationView.findViewById(R.id.tvFullName);
-        //tvFullName.setText(pref.getString("NAME","[NAME]"));
-        /*bLogout = (Button)navigationView.findViewById(R.id.bLogout);
+        /*tvFullName = navigationView.findViewById(R.id.tvFullName);
+        tvFullName.setText(pref.getString("NAME","[NAME]"));
+        bLogout = (Button)navigationView.findViewById(R.id.bLogout);
         bLogout.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 logout();
             }
         });*/
-
+        
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);

@@ -9,6 +9,15 @@
     <ImageView
         android:layout_width="240dp"
         android:layout_height="120dp"
-        android:src="@drawable/placeholderlogo"/>
+        android:src="@drawable/icon"/>
+
+    <ProgressBar
+        style="@style/Base.Widget.AppCompat.ProgressBar"
+        android:id="@+id/progress"
+        android:visibility="invisible"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true" />
 
 </LinearLayout>

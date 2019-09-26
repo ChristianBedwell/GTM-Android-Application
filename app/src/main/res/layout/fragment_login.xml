@@ -25,7 +25,7 @@
                 android:padding="16dp"
                 android:layout_marginTop="48dp"
                 android:layout_marginBottom="20dp"
-                android:src="@drawable/placeholderlogo"/>
+                android:src="@drawable/logo"/>
 
             <EditText
                 android:id="@+id/etEmail"
@@ -38,7 +38,7 @@
                 android:padding="8dp"
                 android:hint="Email"
                 android:maxLines="1"
-                android:drawableStart="@drawable/ic_email_black_24dp"
+                android:drawableLeft="@drawable/ic_email"
                 android:layout_marginTop="70dp"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"/>
@@ -54,7 +54,7 @@
                 android:padding="8dp"
                 android:hint="Password"
                 android:maxLines="1"
-                android:drawableStart="@drawable/ic_lock_black_24dp"
+                android:drawableLeft="@drawable/ic_lock"
                 android:layout_marginTop="10dp"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"/>
@@ -83,7 +83,7 @@
                     android:text="Forgot your password?"
                     android:padding="8dp"
                     android:layout_marginTop="8dp"
-                    android:drawableLeft="@drawable/ic_lock_open_black_24dp"
+                    android:drawableLeft="@drawable/ic_lock_open"
                     android:drawablePadding="12dp"/>
             </LinearLayout>
 
@@ -106,7 +106,7 @@
                 android:background="#224080" />
 
             <Button
-                android:id="@+id/bRegister"
+                android:id="@+id/bRegisterLink"
                 style="@style/Base.TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
