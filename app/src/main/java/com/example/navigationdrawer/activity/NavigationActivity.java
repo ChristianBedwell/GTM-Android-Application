@@ -1,6 +1,7 @@
 package com.example.navigationdrawer.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.app.FragmentTransaction;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
@@ -11,6 +12,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -46,14 +48,8 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
         navigationView.setNavigationItemSelectedListener(this);
 
         /*tvFullName = navigationView.findViewById(R.id.tvFullName);
-        tvFullName.setText(pref.getString("NAME","[NAME]"));
-        bLogout = (Button)navigationView.findViewById(R.id.bLogout);
-        bLogout.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                logout();
-            }
-        });*/
-        
+        tvFullName.setText(pref.getString("NAME","[NAME]"));*/
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -111,9 +107,8 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
     }
 
     private void goToLogin() {
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.fragment_frame, new LoginFragment());
-        ft.commit();
+        Intent loginIntent = new Intent(NavigationActivity.this, MainActivity.class);
+        startActivity(loginIntent);
     }
 
     @Override
@@ -122,8 +117,14 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
             drawer.closeDrawer(GravityCompat.START);
         }
         else {
-            super.onBackPressed();
+            // Do nothing
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.logout_menu, menu);
+        return true;
     }
 
     @Override
@@ -136,6 +137,9 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
         //noinspection SimplifiableIfStatement
         if (id == R.id.nav_settings) {
             return true;
+        }
+        else if(id == R.id.action_logout) {
+            logout();
         }
 
         return super.onOptionsItemSelected(menuItem);

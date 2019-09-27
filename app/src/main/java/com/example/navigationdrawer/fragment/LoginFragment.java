@@ -144,7 +144,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
     private void goToRegister(){
 
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        FragmentTransaction ft = getFragmentManager().beginTransaction().addToBackStack(null);
         ft.replace(R.id.fragment_frame, new com.example.navigationdrawer.fragment.RegisterFragment());
         ft.commit();
     }
@@ -156,7 +156,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
     private void goToResetPassword(){
 
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        FragmentTransaction ft = getFragmentManager().beginTransaction().addToBackStack(null);
         ft.replace(R.id.fragment_frame, new com.example.navigationdrawer.fragment.ResetPasswordFragment());
         ft.commit();
     }

@@ -75,7 +75,6 @@ public class RegisterFragment extends Fragment  implements View.OnClickListener 
 
                 }
                 else {
-
                     Snackbar.make(getView(), "Fields are empty!", Snackbar.LENGTH_LONG).show();
                 }
                 break;
@@ -127,7 +126,7 @@ public class RegisterFragment extends Fragment  implements View.OnClickListener 
     private void goToLogin(){
 
         Fragment login = new LoginFragment();
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        FragmentTransaction ft = getFragmentManager().beginTransaction().addToBackStack(null);
         ft.replace(R.id.fragment_frame,login);
         ft.commit();
     }

@@ -37,24 +37,9 @@
                 android:id="@+id/tvFullName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Todd Ovenhouse"
+                android:text="@string/name_placeholder"
                 android:textColor="#ffffff" />
 
         </LinearLayout>
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:id="@+id/bLogout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:background="@color/white"
-                android:textColor="#3B5999"
-                android:text="Log out" />
-
-        </RelativeLayout>
     </LinearLayout>
 </LinearLayout>
