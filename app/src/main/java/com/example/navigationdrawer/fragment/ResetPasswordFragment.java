@@ -15,6 +15,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import com.example.navigationdrawer.Constants;
 import com.example.navigationdrawer.R;
@@ -39,7 +41,7 @@ public class ResetPasswordFragment extends Fragment implements View.OnClickListe
     private String email;
     private CountDownTimer countDownTimer;
 
-    private LinearLayout linearLayout;
+    private RelativeLayout relativeLayout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -62,8 +64,8 @@ public class ResetPasswordFragment extends Fragment implements View.OnClickListe
         bReset.setOnClickListener(this);
         progress = (ProgressBar) view.findViewById(R.id.progress);
 
-        linearLayout = view.findViewById(R.id.rootView);
-        linearLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        relativeLayout = view.findViewById(R.id.rootView);
+        relativeLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
