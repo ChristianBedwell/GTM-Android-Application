@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import com.example.navigationdrawer.Constants;
 import com.example.navigationdrawer.R;
@@ -40,7 +41,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     private SharedPreferences pref;
     private TextView tvForgotPassword;
 
-    private LinearLayout linearLayout;
+    private ScrollView scrollView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -62,8 +63,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
         progress = (ProgressBar) view.findViewById(R.id.progress);
 
-        linearLayout = view.findViewById(R.id.rootView);
-        linearLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        scrollView = view.findViewById(R.id.rootView);
+        scrollView.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
