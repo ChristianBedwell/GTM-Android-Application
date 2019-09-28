@@ -1,21 +1,19 @@
 package com.example.navigationdrawer.fragment;
 
-import android.content.Context;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.ScrollView;
 import android.widget.TextView;
+
 import com.example.navigationdrawer.Constants;
 import com.example.navigationdrawer.R;
 import com.example.navigationdrawer.RequestInterface;
@@ -24,6 +22,7 @@ import com.example.navigationdrawer.models.ServerResponse;
 import com.example.navigationdrawer.models.User;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
@@ -31,15 +30,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RegisterFragment extends Fragment  implements View.OnClickListener {
 
-    private Button bRegister;
     private EditText etEmail, etPassword, etFullName;
-    private TextView tvLoginLink;
     private ProgressBar progress;
 
-    private ScrollView scrollView;
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_register,container,false);
         initViews(view);
@@ -48,24 +43,12 @@ public class RegisterFragment extends Fragment  implements View.OnClickListener 
 
     private void initViews(View view){
 
-        bRegister = (Button) view.findViewById(R.id.bRegister);
-        tvLoginLink = (TextView) view.findViewById(R.id.tvLoginLink);
+        Button bRegister = (Button) view.findViewById(R.id.bRegister);
+        TextView tvLoginLink = (TextView) view.findViewById(R.id.tvLoginLink);
         etFullName = (EditText) view.findViewById(R.id.etFullName);
         etEmail = (EditText) view.findViewById(R.id.etEmail);
         etPassword = (EditText) view.findViewById(R.id.etPassword);
-
         progress = (ProgressBar) view.findViewById(R.id.progress);
-
-        scrollView = view.findViewById(R.id.rootView);
-        scrollView.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-                    InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), 0);
-                }
-            }
-        });
 
         bRegister.setOnClickListener(this);
         tvLoginLink.setOnClickListener(this);

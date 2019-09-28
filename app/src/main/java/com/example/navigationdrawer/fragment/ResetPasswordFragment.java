@@ -1,6 +1,7 @@
 package com.example.navigationdrawer.fragment;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
@@ -41,10 +42,8 @@ public class ResetPasswordFragment extends Fragment implements View.OnClickListe
     private String email;
     private CountDownTimer countDownTimer;
 
-    private RelativeLayout relativeLayout;
-
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_password_reset,container,false);
         initViews(view);
@@ -63,17 +62,6 @@ public class ResetPasswordFragment extends Fragment implements View.OnClickListe
         tvTimer.setVisibility(View.GONE);
         bReset.setOnClickListener(this);
         progress = (ProgressBar) view.findViewById(R.id.progress);
-
-        relativeLayout = view.findViewById(R.id.rootView);
-        relativeLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-                    InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), 0);
-                }
-            }
-        });
     }
 
     @Override
