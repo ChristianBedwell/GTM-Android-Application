@@ -1,5 +1,6 @@
 package com.example.navigationdrawer.fragment;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
@@ -8,8 +9,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.example.navigationdrawer.Constants;
@@ -32,6 +35,8 @@ public class RegisterFragment extends Fragment  implements View.OnClickListener 
     private TextView tvLoginLink;
     private ProgressBar progress;
 
+    private LinearLayout linearLayout;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -49,6 +54,17 @@ public class RegisterFragment extends Fragment  implements View.OnClickListener 
         etPassword = (EditText) view.findViewById(R.id.etPassword);
 
         progress = (ProgressBar) view.findViewById(R.id.progress);
+
+        linearLayout = view.findViewById(R.id.rootView);
+        linearLayout.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), 0);
+                }
+            }
+        });
 
         bRegister.setOnClickListener(this);
         tvLoginLink.setOnClickListener(this);
