@@ -3,12 +3,15 @@ package com.example.navigationdrawer.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Rect;
+import android.os.Build;
 import android.support.v4.app.FragmentTransaction;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
@@ -24,6 +27,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // In Activity's onCreate() for instance
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Window w = getWindow();
+            w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        }
+
         pref = getSharedPreferences("Constants", Context.MODE_PRIVATE);
         initFragment();
     }
@@ -47,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initFragment() {
 
-        if(pref.getBoolean(Constants.IS_LOGGED_IN,false)) {
+        if (pref.getBoolean(Constants.IS_LOGGED_IN,false)) {
             Intent homeIntent = new Intent(MainActivity.this, NavigationActivity.class);
             startActivity(homeIntent);
         }
