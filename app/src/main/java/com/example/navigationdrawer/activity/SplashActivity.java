@@ -2,13 +2,15 @@ package com.example.navigationdrawer.activity;
 
 import android.content.Intent;
 import android.os.Build;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
+import android.os.Handler;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ProgressBar;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
+import android.widget.ImageView;
 
 import com.example.navigationdrawer.R;
 
@@ -33,12 +35,10 @@ public class SplashActivity extends AppCompatActivity {
 
             @Override
             public void run() {
-                progress.setVisibility(View.VISIBLE);
                 Intent i = new Intent(SplashActivity.this, MainActivity.class);
                 startActivity(i);
                 finish();
             }
         }, 4000);
-        progress.setVisibility(View.INVISIBLE);
     }
 }
