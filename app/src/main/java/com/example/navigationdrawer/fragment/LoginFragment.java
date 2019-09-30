@@ -51,14 +51,14 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         pref = getActivity().getSharedPreferences("Constants", Context.MODE_PRIVATE);
 
         Button bLogin = (Button) view.findViewById(R.id.bLogin);
-        Button bRegisterLink = (Button) view.findViewById(R.id.bRegisterLink);
+        TextView tvRegisterLink = (TextView) view.findViewById(R.id.tvRegisterLink);
         etEmail = (EditText) view.findViewById(R.id.etEmail);
         etPassword = (EditText) view.findViewById(R.id.etPassword);
         TextView tvForgotPassword = (TextView) view.findViewById(R.id.tvForgotPassword);
         progress = (ProgressBar) view.findViewById(R.id.progress);
 
         bLogin.setOnClickListener(this);
-        bRegisterLink.setOnClickListener(this);
+        tvRegisterLink.setOnClickListener(this);
         tvForgotPassword.setOnClickListener(this);
     }
 
@@ -67,7 +67,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
         switch (v.getId()){
 
-            case R.id.bRegisterLink:
+            case R.id.tvRegisterLink:
                 goToRegister();
                 break;
 
