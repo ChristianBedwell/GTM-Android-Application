@@ -2,13 +2,13 @@
 <RelativeLayout
     android:background="@drawable/background"
     android:id="@+id/rootView"
+    android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingRight="18dp"
-    android:paddingBottom="@dimen/activity_vertical_margin">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ImageView
         android:id="@+id/image"
@@ -28,7 +28,6 @@
         android:backgroundTint="@android:color/white"
         android:drawablePadding="12dp"
         android:drawableStart="@drawable/ic_email"
-        android:drawablePadding="12dp"
         android:ems="10"
         android:fontFamily="sans-serif"
         android:hint="@string/email"
@@ -41,17 +40,20 @@
         android:paddingTop="8dp"
         android:paddingBottom="14dp"
         android:textColor="@color/white"
-        android:textColorHint="#ffffff" />
+        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/etPassword"
         android:backgroundTint="@android:color/white"
         android:drawablePadding="12dp"
         android:drawableStart="@drawable/ic_lock"
-        android:drawablePadding="12dp"
         android:ems="10"
         android:hint="@string/password"
         android:inputType="textPassword"
+        android:layout_below="@+id/etEmail"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
         android:maxLines="1"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
@@ -61,40 +63,40 @@
         android:textColorHint="@color/white" />
 
     <CheckBox
-        android:id="@+id/cbRememberMe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/etPassword"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="6dp"
         android:buttonTint="@color/white"
+        android:id="@+id/cbRememberMe"
+        android:layout_below="@+id/etPassword"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:layout_marginTop="8dp"
+        android:layout_width="wrap_content"
         android:padding="8dp"
         android:text="@string/remember_me"
         android:textColor="@color/white" />
 
     <TextView
+        android:clickable="true"
+        android:drawablePadding="12dp"
+        android:drawableStart="@drawable/ic_lock_open"
+        android:focusable="true"
         android:id="@+id/tvForgotPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_below="@id/etPassword"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_toEndOf="@+id/cbRememberMe"
-        android:clickable="true"
-        android:drawableStart="@drawable/ic_lock_open"
-        android:drawablePadding="12dp"
-        android:focusable="true"
+        android:layout_width="wrap_content"
         android:padding="8dp"
         android:text="@string/forgot_your_password"
         android:textColor="@color/white" />
 
     <Button
-        android:id="@+id/bLogin"
         style="@style/Base.TextAppearance.AppCompat.Body1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/cbRememberMe"
-        android:layout_marginTop="24dp"
         android:background="@drawable/button_white"
+        android:id="@+id/bLogin"
+        android:layout_below="@id/cbRememberMe"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_width="match_parent"
         android:padding="16dp"
         android:text="@string/log_in"
         android:textColor="#D958A2"
