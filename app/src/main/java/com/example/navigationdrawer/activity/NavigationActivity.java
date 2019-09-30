@@ -2,28 +2,25 @@ package com.example.navigationdrawer.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.app.FragmentTransaction;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.navigationdrawer.Constants;
+import com.example.navigationdrawer.R;
 import com.example.navigationdrawer.fragment.HomeFragment;
 import com.example.navigationdrawer.fragment.JobsFragment;
-import com.example.navigationdrawer.fragment.LoginFragment;
 import com.example.navigationdrawer.fragment.MessagesFragment;
-import com.example.navigationdrawer.R;
 import com.example.navigationdrawer.fragment.SettingsFragment;
 import com.example.navigationdrawer.fragment.WeatherFragment;
 
@@ -31,8 +28,6 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
 
     private DrawerLayout drawer;
     private SharedPreferences pref;
-    private TextView tvFullName;
-    private Button bLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +42,9 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        /*tvFullName = navigationView.findViewById(R.id.tvFullName);
-        tvFullName.setText(pref.getString("NAME","[NAME]"));*/
+        View headerView = navigationView.getHeaderView(0);
+        TextView tvFullName = (TextView) headerView.findViewById(R.id.tvFullName);
+        tvFullName.setText(pref.getString(Constants.NAME, "Name Unavailable"));
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -109,6 +105,7 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
     private void goToLogin() {
         Intent loginIntent = new Intent(NavigationActivity.this, MainActivity.class);
         startActivity(loginIntent);
+        finish();
     }
 
     @Override
