@@ -2,114 +2,112 @@ package com.example.navigationdrawer.fragment;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.content.SharedPreferences;
-import android.support.v4.app.Fragment;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import com.example.navigationdrawer.R;
+
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragmentCompat;
+
 import com.example.navigationdrawer.Constants;
+import com.example.navigationdrawer.R;
 import com.example.navigationdrawer.RequestInterface;
 import com.example.navigationdrawer.models.ServerRequest;
 import com.example.navigationdrawer.models.ServerResponse;
 import com.example.navigationdrawer.models.User;
+import com.google.android.material.snackbar.Snackbar;
+
+import java.util.Objects;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class SettingsFragment extends Fragment implements View.OnClickListener {
+public class SettingsFragment extends PreferenceFragmentCompat {
 
     private TextView tvStatusMessage;
-    private SharedPreferences pref;
-    private Button bChangePassword;
     private EditText etOldPassword,etNewPassword;
-    private AlertDialog dialog;
     private ProgressBar progress;
+    private AlertDialog dialog;
+    private SharedPreferences sharedPreferences;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_settings, container,false);
-        initViews(view);
-        return view;
+    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+        Objects.requireNonNull(getActivity()).setTitle("Settings");
+        setPreferencesFromResource(R.xml.pref_settings, rootKey);
     }
 
     @SuppressLint("SetTextI18n")
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        pref = getActivity().getPreferences(0);
+        sharedPreferences = getActivity().getSharedPreferences("com.example.navigationdrawer", Context.MODE_PRIVATE);
     }
 
-    private void initViews(View view) {
-        bChangePassword = (Button) view.findViewById(R.id.bChangePassword);
-        bChangePassword.setOnClickListener(this);
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        Preference bChangePassword = findPreference("changePassword");
+        bChangePassword.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                showDialog();
+                return true;
+            }
+        });
     }
 
-    private void showDialog() {
+    private void showDialog() throws Resources.NotFoundException {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_change_password, null);
+
         etOldPassword = (EditText) view.findViewById(R.id.et_old_password);
         etNewPassword = (EditText) view.findViewById(R.id.et_new_password);
         tvStatusMessage = (TextView) view.findViewById(R.id.tv_status_message);
         progress = (ProgressBar) view.findViewById(R.id.progress);
-        builder.setView(view);
-        builder.setTitle("Change Password");
-        builder.setPositiveButton("Change Password", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
 
-            }
-        });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
-        dialog = builder.create();
-        dialog.show();
-        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String old_password = etOldPassword.getText().toString();
-                String new_password = etNewPassword.getText().toString();
-                if(!old_password.isEmpty() && !new_password.isEmpty()) {
+        dialog = new AlertDialog.Builder(getActivity())
+                .setView(view)
+                .setTitle("Change Password")
+                .setPositiveButton("Change Password", new DialogInterface.OnClickListener() {
 
-                    progress.setVisibility(View.VISIBLE);
-                    changePasswordProcess(pref.getString(Constants.EMAIL,""),old_password,new_password);
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
 
-                }
+                        String old_password = etOldPassword.getText().toString();
+                        String new_password = etNewPassword.getText().toString();
 
-                else {
+                        if (!old_password.isEmpty() && !new_password.isEmpty()) {
+                            progress.setVisibility(View.VISIBLE);
+                            changePasswordProcess(sharedPreferences.getString(Constants.EMAIL,""), old_password, new_password);
+                        }
+                        else {
+                            tvStatusMessage.setVisibility(View.VISIBLE);
+                            tvStatusMessage.setText("Fields are empty");
+                        }
+                    }
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
 
-                    tvStatusMessage.setVisibility(View.VISIBLE);
-                    tvStatusMessage.setText("Fields are empty");
-                }
-            }
-        });
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                }).show();
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-
-            case R.id.bChangePassword:
-                showDialog();
-                break;
-        }
-    }
-
-    private void changePasswordProcess(String email,String old_password,String new_password){
+    private void changePasswordProcess(String email, String old_password, String new_password) {
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
@@ -132,7 +130,7 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
             public void onResponse(Call<ServerResponse> call, retrofit2.Response<ServerResponse> response) {
 
                 ServerResponse resp = response.body();
-                if(resp.getResult().equals(Constants.SUCCESS)) {
+                if (resp.getResult().equals(Constants.SUCCESS)) {
                     progress.setVisibility(View.GONE);
                     tvStatusMessage.setVisibility(View.GONE);
                     dialog.dismiss();

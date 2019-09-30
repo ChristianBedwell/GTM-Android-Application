@@ -1,23 +1,18 @@
 package com.example.navigationdrawer.fragment;
 
-import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.support.design.widget.Snackbar;
+import com.google.android.material.snackbar.Snackbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import com.example.navigationdrawer.Constants;
 import com.example.navigationdrawer.R;
