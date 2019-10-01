@@ -21,7 +21,6 @@ import com.example.navigationdrawer.R;
 import com.example.navigationdrawer.fragment.HomeFragment;
 import com.example.navigationdrawer.fragment.JobsFragment;
 import com.example.navigationdrawer.fragment.MessagesFragment;
-import com.example.navigationdrawer.fragment.SettingsFragment;
 import com.example.navigationdrawer.fragment.WeatherFragment;
 
 public class NavigationActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -81,11 +80,6 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new MessagesFragment()).commit();
                 break;
-
-            case R.id.nav_settings:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new SettingsFragment()).commit();
-                break;
         }
         drawer.closeDrawer(GravityCompat.START);
         setTitle(menuItem.getTitle());
@@ -120,7 +114,7 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.logout_menu, menu);
+        getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
 
@@ -131,14 +125,19 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
         // as you specify a parent activity in AndroidManifest.xml.
         int id = menuItem.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.nav_settings) {
-            return true;
-        }
-        else if(id == R.id.action_logout) {
+        if(id == R.id.action_logout) {
             logout();
+        }
+        else if(id == R.id.action_settings) {
+            goToSettings();
         }
 
         return super.onOptionsItemSelected(menuItem);
+    }
+
+    private void goToSettings() {
+        Intent intent = new Intent(NavigationActivity.this, SettingsActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
