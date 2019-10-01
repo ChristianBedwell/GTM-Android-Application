@@ -125,6 +125,7 @@
         android:layout_below="@+id/tvLoginLink"
         android:layout_marginTop="10dp"
         android:indeterminate="true"
+        android:theme="@style/ProgressBar"
         android:visibility="invisible" />
 
 </RelativeLayout>
