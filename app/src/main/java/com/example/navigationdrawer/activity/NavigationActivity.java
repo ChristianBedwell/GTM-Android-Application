@@ -138,6 +138,5 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
     private void goToSettings() {
         Intent intent = new Intent(NavigationActivity.this, SettingsActivity.class);
         startActivity(intent);
-        finish();
     }
 }
