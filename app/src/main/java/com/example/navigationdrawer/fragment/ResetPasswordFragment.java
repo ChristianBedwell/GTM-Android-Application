@@ -40,7 +40,7 @@ public class ResetPasswordFragment extends Fragment implements View.OnClickListe
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_password_reset,container,false);
+        View view = inflater.inflate(R.layout.fragment_password_reset, container,false);
         initViews(view);
         return view;
     }
@@ -71,11 +71,13 @@ public class ResetPasswordFragment extends Fragment implements View.OnClickListe
                     if (!email.isEmpty()) {
                         progress.setVisibility(View.VISIBLE);
                         initiateResetPasswordProcess(email);
-                    } else {
+                    }
+                    else {
 
                         Snackbar.make(getView(), "Fields are empty!", Snackbar.LENGTH_LONG).show();
                     }
-                } else {
+                }
+                else {
 
                     String code = etCode.getText().toString();
                     String password = etPassword.getText().toString();
@@ -83,7 +85,8 @@ public class ResetPasswordFragment extends Fragment implements View.OnClickListe
                     if(!code.isEmpty() && !password.isEmpty()){
 
                         finishResetPasswordProcess(email,code,password);
-                    } else {
+                    }
+                    else {
 
                         Snackbar.make(getView(), "Fields are empty!", Snackbar.LENGTH_LONG).show();
                     }
@@ -188,7 +191,8 @@ public class ResetPasswordFragment extends Fragment implements View.OnClickListe
                     isResetInitiated = false;
                     goToLogin();
 
-                } else {
+                }
+                else {
 
                     Snackbar.make(getView(), resp.getMessage(), Snackbar.LENGTH_LONG).show();
 
@@ -211,11 +215,11 @@ public class ResetPasswordFragment extends Fragment implements View.OnClickListe
         countDownTimer = new CountDownTimer(120000, 1000) {
 
             public void onTick(long millisUntilFinished) {
-                tvTimer.setText("Time remaining : " + millisUntilFinished / 1000);
+                tvTimer.setText("Time remaining: " + millisUntilFinished / 1000);
             }
 
             public void onFinish() {
-                Snackbar.make(getView(), "Time Out ! Request again to reset password.", Snackbar.LENGTH_LONG).show();
+                Snackbar.make(getView(), "Time Out! Request again to reset password.", Snackbar.LENGTH_LONG).show();
                 goToLogin();
             }
         }.start();
