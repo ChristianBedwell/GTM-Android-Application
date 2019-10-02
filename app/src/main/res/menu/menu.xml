@@ -16,7 +16,6 @@
         android:orderInCategory="90"
         android:icon="@drawable/ic_settings"
         android:title="Settings"
-        app:showAsAction="never">
+        app:showAsAction="never" />
 
-    </item>
 </menu>

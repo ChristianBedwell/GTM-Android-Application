@@ -46,15 +46,11 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         setPreferencesFromResource(R.xml.pref_settings, rootKey);
     }
 
-    @SuppressLint("SetTextI18n")
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        sharedPreferences = getActivity().getSharedPreferences("com.example.navigationdrawer", Context.MODE_PRIVATE);
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        sharedPreferences = getActivity().getSharedPreferences("Constants", Context.MODE_PRIVATE);
 
         Preference bChangePassword = findPreference("changePassword");
         bChangePassword.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {

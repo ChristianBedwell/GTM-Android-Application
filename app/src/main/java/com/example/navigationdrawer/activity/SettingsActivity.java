@@ -1,9 +1,9 @@
 package com.example.navigationdrawer.activity;
 
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import android.view.MenuItem;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.navigationdrawer.R;
 import com.example.navigationdrawer.fragment.SettingsFragment;
