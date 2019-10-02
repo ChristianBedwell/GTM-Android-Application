@@ -2,7 +2,7 @@
 
     <Preference
         android:key="changePassword"
-        android:summary="Not satisfied with your current password setting? Change it here!"
+        android:summary="Not satisfied with your current password setting? Click here to change it."
         android:title="Change Password"
         android:layout="@layout/preference_row_item" />
 
