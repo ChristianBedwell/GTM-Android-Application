@@ -4,8 +4,8 @@ Companion app for admins/employees at GTM Home Services.
 NOTE: Due to a change in project requirements by the sponsor, this repository has been deprecated and all functionality has been shifted over to the web application. 
 
 ![Login Screen](images/login_screen.png?raw=true "Login Screen")
-![Navigation Menu](images/navigation_menu.png?raw=true "Opening Navigation Menu")
-![Settings Menu](images/settings_menu.png?raw=true "Opening Settings Menu")
+![Navigation Menu](images/navigation_menu.png?raw=true "Navigation Menu")
+![Settings Menu](images/settings_menu.png?raw=true "Settings Menu")
 
 ## Technologies Used
 * **Gson** - deserializes JSON objects to Java objects
