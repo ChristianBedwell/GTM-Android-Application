@@ -1,5 +1,6 @@
 # GTM-Android-Application
 Companion app for admins/employees at GTM Home Services.
+
 NOTE: Due to a change in project requirements by the sponsor, this repository has been deprecated and all functionality has been shifted over to the web application. 
 
 ## Technologies Used
