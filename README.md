@@ -7,7 +7,7 @@ NOTE: Due to a change in project requirements by the sponsor, this repository ha
 ![Navigation Menu](images/navigation_menu.png?raw=true "Navigation Menu")
 ![Settings Menu](images/settings_menu.png?raw=true "Settings Menu")
 
-# Configuring the Database
+## Configuring the Database
 To view instructions on how to configure the PHP back end for this project, refer to the README.md under the [following repository].(https://github.com/HBedwell24/GTM-Android-Application-Back-End)
 
 ## Technologies Used
