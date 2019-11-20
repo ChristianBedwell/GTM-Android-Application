@@ -18,8 +18,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 public class NavigationActivityTest {
 
     @Rule
-    public final ActivityTestRule<NavigationActivity> testRule
-            = new ActivityTestRule<>(NavigationActivity.class);
+    public final ActivityTestRule<NavigationActivity> testRule = new ActivityTestRule<>(NavigationActivity.class);
 
     @Test
     public void homeTest() {
